@@ -1,0 +1,1 @@
+mpiexec -n 4 C:\CompuCell3D\Miniconda3\python.exe -m cc3d.core.param_scan.parameter_scan_run --input="C:\CompuCell3D\CC3DWorkSpace\ICCS project\combi_clean_optimized\endothelial.cc3d" --output-dir="C:\CompuCell3D\CC3DWorkSpace\endothelialParameterScan" --install-dir="C:/CompuCell3D/CC3DWorkSpace" --output-frequency=10000 --screenshot-output-frequency=10000
