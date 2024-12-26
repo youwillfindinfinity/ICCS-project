@@ -54,11 +54,11 @@ for i in range(101):  # Loop through all file numbers (0 to 100)
 
             # Draw text on the image
             draw = ImageDraw.Draw(img)
-            if i == 0:
-                text = "MCS: 0"
-            else:
-                text = f"MCS: {i * 10000}"
-            draw.text(text_position, text, fill=text_color, font=font, stroke_width=5)
+            # if i == 0:
+            #     text = "MCS: 0"
+            # else:
+            #     text = f"MCS: {i * 10000}"
+            # draw.text(text_position, text, fill=text_color, font=font, stroke_width=5)
 
             # Convert to RGB mode if necessary (imageio requires RGB format)
             if img.mode != "RGB":
