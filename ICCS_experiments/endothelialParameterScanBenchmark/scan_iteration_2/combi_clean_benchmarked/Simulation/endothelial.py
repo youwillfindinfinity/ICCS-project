@@ -11,7 +11,7 @@ def configure_simulation(relaxationmcs, nx, ny, max_steps):
     
     # Metadata
     metadata = xml_3d.ElementCC3D("Metadata")
-    metadata.ElementCC3D("NumberOfProcessors", {}, 16)
+    metadata.ElementCC3D("NumberOfProcessors", {}, 4)
     metadata.ElementCC3D("DebugOutputFrequency", {}, relaxationmcs)
 
     # Potts Section

@@ -8,5 +8,4 @@
    <Resource Type="Text">Simulation/mesh.txt</Resource>
    <Resource Type="Text">Simulation/meshphi.txt</Resource>
    <Resource Type="Text">Simulation/pixel_list.txt</Resource>
-   <ParameterScan Type="ParameterScan">Simulation/ParameterScanSpecs.json</ParameterScan>
 </Simulation>
