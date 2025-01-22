@@ -12,6 +12,8 @@ all_data = []
 
 # Define the endothelial counts corresponding to each index
 processor_nr = [
+    1, 1, 1, 1, 1,
+    2, 2, 2, 2, 2,
     4, 4, 4, 4, 4,
     8, 8, 8, 8, 8,
     16, 16, 16, 16, 16,

@@ -1,6 +1,6 @@
 {
     "current_iteration": 22,
     "parameters": {
-        "processor_nr": 64
+        "processor_nr": 16
     }
 }
