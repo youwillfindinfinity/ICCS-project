@@ -3,13 +3,13 @@ from PIL import Image, ImageDraw, ImageFont
 import imageio.v3 as iio
 
 # Configuration
-input_folder = r".\ICCS_experiments\endothelial_benchmarkWholeData\LatticeData"  # Folder containing PNG files
-output_video = r".\ICCS_experiments\endothelial_benchmarkWholeData\LatticeData\output_video.mp4"
+input_folder = r".\ICCS_experiments\endothelial_benchmarkWholeData\LatticeData\output2"  # Folder containing PNG files
+output_video = r".\ICCS_experiments\endothelial_benchmarkWholeData\LatticeData\output2\output_video.mp4"
 font_path = r".\ICCS_experiments\endothelial_benchmarkWholeData\LatticeData\ShinyCrystal-Yq3z4.ttf"  # Path to a TTF font file
 font_size = 80
 text_color = (0, 0, 0)  # Black color for text
 text_position = (300, 800)  # Position where text will be drawn
-crop_box = (205, 150, 960, 900)  # Define the crop box (left, upper, right, lower)
+crop_box = (210, 135, 785, 700)  # Define the crop box (left, upper, right, lower)
 fixed_size = (900, 900)  # Resize all images to this size after cropping
 
 # Iterations for screenshots

@@ -4,7 +4,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the data from the CSV file
-data_file = r'Benchmark_results\endothelial_simulation_data_phases_endocounts.csv'
+data_file = os.path.join('Benchmark_results', 'endothelial_simulation_data_phases_endocounts.csv')
+
+# Check if the file exists
+if not os.path.exists(data_file):
+    raise FileNotFoundError(f"File not found: {data_file}")
+
 data = pd.read_csv(data_file)
 
 # Create the results folder if it doesn't exist
@@ -18,21 +23,19 @@ sns.set_theme(style="whitegrid")
 # Define the phases for plotting
 phases = ['IP_h', 'PP_h', 'RP_h']
 
-# Normalize IP_h values to use as the color gradient
-data['Color Intensity'] = data['RP_h'] / data['RP_h'].max()
+# Create a figure for all violin plots with enough width for individual plots
+fig, axes = plt.subplots(1, len(phases), figsize=(18, 6), sharex=True, sharey=True)  # Keep original size
 
-# Create a figure for all violin plots
-fig, axes = plt.subplots(1, len(phases), figsize=(18, 6), sharex=True, sharey=True)
+# Adjust spacing between subplots to make them closer without squishing
+plt.subplots_adjust(wspace=0.05)  # Reduce horizontal space between plots
 
 # Iterate over each phase and create a violin plot
 for i, phase in enumerate(phases):
     ax = axes[i]
     
     # Create a color palette based on IP_h (simulation time)
-    cmap = sns.color_palette("coolwarm", as_cmap=True)
-    norm = plt.Normalize(vmin=data['RP_h'].min(), vmax=data['RP_h'].max())
-    colors = cmap(norm(data['RP_h']).data).tolist()  # Convert NumPy array to list
-
+    colors = sns.color_palette("coolwarm", 7)  # Generate a discrete color palette
+    
     # Create a violin plot with density_norm and custom palette
     sns.violinplot(
         x='Endothelial Count',
@@ -40,7 +43,7 @@ for i, phase in enumerate(phases):
         data=data,
         ax=ax,
         inner=None,  # Disable internal lines so we can add custom mean lines
-        palette=colors,  # Use converted list of colors
+        palette=colors,  # Use discrete list of colors
         legend=False  # Avoid redundant legends
     )
     
@@ -55,6 +58,9 @@ for i, phase in enumerate(phases):
     # Customize y-axis range for consistency across all plots
     ax.set_ylim(0.2, 1.4)
     
+    # Add a horizontal cutoff line at y=0.8
+    ax.axhline(y=0.8, color='red', linestyle='--', linewidth=1.5)
+    
     # Set x-axis label only for the last subplot
     if i == len(phases) - 1:
         ax.set_xlabel('Endothelial Count', fontsize=12)
@@ -62,12 +68,14 @@ for i, phase in enumerate(phases):
     # Set y-axis label only for the first subplot
     if i == 0:
         ax.set_ylabel('Values', fontsize=12)
-
-# Add a shared colorbar for all subplots to indicate simulation time intensity (IP_h)
-sm = plt.cm.ScalarMappable(cmap="coolwarm", norm=norm)
-sm.set_array([])
-cbar = fig.colorbar(sm, ax=axes.ravel().tolist(), orientation='horizontal', pad=0.1)
-cbar.set_label('Simulation Time (in hours)', fontsize=12)
+    
+    # Customize y-axis ticks: Keep regular intervals below 0.8 and larger intervals above it
+    lower_ticks = [0.2, 0.4, 0.6, 0.8]  # Ticks below or at 0.8
+    upper_ticks = [1., 1.1, 1.2, 1.3, 1.4]   # Ticks above 0.8 with larger intervals
+    ax.set_yticks(lower_ticks + upper_ticks)
+    
+    # Remove upper and right spines to clean up the plot appearance
+    sns.despine(ax=ax)
 
 # Save the combined plot as a PNG file in the Benchmark_results folder
 output_file = os.path.join(results_folder, 'combined_violin_plot_phases_endocounts.png')
