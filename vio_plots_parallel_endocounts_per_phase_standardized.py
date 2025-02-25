@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the data from the CSV file
-data_file = os.path.join('Benchmark_results', 'endothelial_simulation_data_phases_endocounts_snellius_Benchmark_full.csv')
+data_file = os.path.join('Parallel_results', 'parallel_snellius_endocount_processors.csv')
 
 # Check if the file exists
 if not os.path.exists(data_file):
@@ -13,7 +13,7 @@ if not os.path.exists(data_file):
 data = pd.read_csv(data_file)
 
 # Create the results folder if it doesn't exist
-results_folder = 'Benchmark_results'
+results_folder = 'Parallel_results'
 if not os.path.exists(results_folder):
     os.makedirs(results_folder)
 
@@ -56,10 +56,10 @@ for i, phase in enumerate(phases):
     ax.set_title(f'{phase}', fontsize=14)
     
     # Customize y-axis range for consistency across all plots
-    ax.set_ylim(0.2, 1.0)
+    # ax.set_ylim(0.2, 1.4)
     
     # Add a horizontal cutoff line at y=0.8
-    ax.axhline(y=0.55, color='red', linestyle='--', linewidth=1.5)
+    ax.axhline(y=0.8, color='red', linestyle='--', linewidth=1.5)
     
     # Set x-axis label only for the last subplot
     if i == len(phases) - 1:
@@ -70,14 +70,14 @@ for i, phase in enumerate(phases):
         ax.set_ylabel('Values', fontsize=12)
     
     # Customize y-axis ticks: Keep regular intervals below 0.8 and larger intervals above it
-    lower_ticks = [0.2, 0.4, 0.6, 0.8]  # Ticks below or at 0.8
-    upper_ticks = [1., 1.2]   # Ticks above 0.8 with larger intervals
-    ax.set_yticks(lower_ticks + upper_ticks)
+    # lower_ticks = [0.2, 0.4, 0.6, 0.8]  # Ticks below or at 0.8
+    # upper_ticks = [1.0, 1.4, 1.8, 2.2, 2.4]   # Ticks above 0.8 with larger intervals
+    # ax.set_yticks(lower_ticks + upper_ticks)
     
     # Remove upper and right spines to clean up the plot appearance
     sns.despine(ax=ax)
 
-# Save the combined plot as a PNG file in the Benchmark_results folder
+# Save the combined plot as a PNG file in the Parallel_results folder
 output_file = os.path.join(results_folder, 'combined_violin_plot_phases_endocounts.png')
 plt.savefig(output_file, dpi=300)  # High-resolution output
 

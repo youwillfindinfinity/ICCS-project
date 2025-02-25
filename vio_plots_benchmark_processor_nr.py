@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # File paths
-data_file = r'Benchmark_results\processor_nr_exp.csv'
+# data_file = r'Benchmark_results\processor_nr_exp.csv'
+data_file = r'Benchmark_results\processor_nr_exp_full.csv'
 results_folder = r'Benchmark_results'
 
 # Load the data from the CSV file
@@ -45,7 +46,7 @@ plt.xlabel('Processor Number', fontsize=14)
 plt.ylabel('Total Simulation Time (hours)', fontsize=14)
 
 # Save the plot as a PNG file in the results folder
-output_file = os.path.join(results_folder, 'violin_plot_total_sim_time_per_processor.png')
+output_file = os.path.join(results_folder, 'violin_plot_total_sim_time_per_processor_snellius_full.png')
 plt.savefig(output_file, dpi=300)  # High-resolution output
 
 print(f"Saved {output_file}")
