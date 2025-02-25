@@ -16,16 +16,14 @@ processor_nr = [
     2, 2, 2, 2, 2,
     4, 4, 4, 4, 4,
     8, 8, 8, 8, 8,
-    16, 16, 16, 16, 16,
-    32, 32, 32, 32, 32,
-    64, 64, 64, 64, 64
+    16
 ]
-
+# processor_nr = [1, 2, 4, 8, 16, 32, 64, 128]
 # Loop through each index and read the data
 for index in range(len(processor_nr)):
     # Construct the path to the simulation_time.txt file
-    file_path = os.path.join('ICCS_experiments\Processor_nr_endothelial_experiment', f'scan_iteration_{index}', 'combi_clean_benchmarked_processors', 'datafiles', 'simulation_time.txt')
-    
+    # file_path = os.path.join('ICCS_experiments\Processor_nr_endothelial_experiment', f'scan_iteration_{index}', 'combi_clean_benchmarked_processors', 'datafiles', 'simulation_time.txt')
+    file_path = os.path.join('ICCS_experiments\snellius_Benchmark_process_nr_full', f'scan_iteration_{index}', 'combi_clean_benchmarked_processors', 'datafiles', 'simulation_time.txt')
     # Check if the file exists
     if os.path.exists(file_path):
         # Read the data from the file
@@ -47,7 +45,7 @@ for index in range(len(processor_nr)):
 all_data_df = pd.DataFrame(all_data)
 
 # Save the DataFrame to a CSV file
-output_csv_path = os.path.join(results_folder, 'processor_nr_exp.csv')
+output_csv_path = os.path.join(results_folder, 'processor_nr_exp_full.csv')
 all_data_df.to_csv(output_csv_path, index=False)
 
 print(f"Data successfully saved to {output_csv_path}")

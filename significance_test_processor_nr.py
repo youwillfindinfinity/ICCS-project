@@ -4,7 +4,7 @@ from statsmodels.stats.multicomp import pairwise_tukeyhsd
 import os
 
 # File paths
-input_csv_path = r'Benchmark_results\processor_nr_exp.csv'
+input_csv_path = r'Benchmark_results\processor_nr_exp_new_solo.csv'
 results_folder = r'Benchmark_results'
 
 # Read the input CSV file

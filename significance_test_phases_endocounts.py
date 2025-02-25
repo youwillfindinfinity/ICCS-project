@@ -27,7 +27,7 @@ endothelial_counts = [
 # Loop through each index and read the data
 for index in range(40):
     # Construct the path to the simulation_time.txt file
-    file_path = os.path.join('ICCS_experiments\endothelialParameterScanBenchmark', f'scan_iteration_{index}', 'combi_clean_benchmarked', 'datafiles', 'simulation_time.txt')
+    file_path = os.path.join('ICCS_experiments\snellius_Benchmark_full', f'scan_iteration_{index}', 'combi_clean_benchmarked', 'datafiles', 'simulation_time.txt')
     
     # Check if the file exists
     if os.path.exists(file_path):
