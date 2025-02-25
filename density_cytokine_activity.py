@@ -68,5 +68,5 @@ sns.despine()
 
 # Save the plot as a PNG file
 plt.tight_layout()
-plt.savefig("Benchmark_results/cytokine_activity_plot.png", dpi=400, transparent=True)
+# plt.savefig("Benchmark_results/cytokine_activity_plot.png", dpi=400, transparent=True)
 plt.show()
