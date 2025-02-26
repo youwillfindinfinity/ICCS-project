@@ -1,16 +1,16 @@
 Parallelization and Optimization of Spatial Immune Response Simulations in Burn Wound Healing
-Authors:
-Roland V. Bumbuc<sup>1,2,3,4</sup>*, Vivek M. Sheraton<sup>3,4</sup>†
+
+
+Authors:Roland V. Bumbuc<sup>1,2,3</sup>*, Vivek M. Sheraton<sup>3</sup>†
 
 Affiliations:
 
-Department of Plastic, Reconstructive and Hand Surgery, Amsterdam Movement Sciences (AMS) Institute, Amsterdam UMC, Location VUmc, Amsterdam, The Netherlands
+1.Department of Plastic, Reconstructive and Hand Surgery, Amsterdam Movement Sciences (AMS) Institute, Amsterdam UMC, Location VUmc, Amsterdam, The Netherlands
 
-Department of Molecular Cell Biology and Immunology, Amsterdam Infection and Immunity (AII) Institute, Amsterdam UMC, Location VUmc, Amsterdam, The Netherlands
+2.Department of Molecular Cell Biology and Immunology, Amsterdam Infection and Immunity (AII) Institute, Amsterdam UMC, Location VUmc, Amsterdam, The Netherlands
 
-Computational Science Lab, Informatics Institute, University of Amsterdam, UvA - LAB42, Amsterdam, The Netherlands
+3.Computational Science Lab, Informatics Institute, University of Amsterdam, UvA - LAB42, Amsterdam, The Netherlands
 
-Center for Experimental and Molecular Medicine (CEMM), Amsterdam UMC, Amsterdam, The Netherlands
 
 Correspondence:
 Vivek M. Sheraton (v.s.muniraj@uva.nl)
