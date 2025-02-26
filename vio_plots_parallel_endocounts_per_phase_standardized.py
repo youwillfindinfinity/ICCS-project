@@ -24,42 +24,46 @@ sns.set_theme(style="whitegrid")
 phases = ['IP_h', 'PP_h', 'RP_h']
 
 # Create a figure for all violin plots with enough width for individual plots
-fig, axes = plt.subplots(1, len(phases), figsize=(18, 6), sharex=True, sharey=True)  # Keep original size
+fig, axes = plt.subplots(1, len(phases), figsize=(18, 6), sharey=True)
 
 # Adjust spacing between subplots to make them closer without squishing
-plt.subplots_adjust(wspace=0.05)  # Reduce horizontal space between plots
+plt.subplots_adjust(wspace=0.05)
 
 # Iterate over each phase and create a violin plot
 for i, phase in enumerate(phases):
     ax = axes[i]
     
-    # Create a color palette based on IP_h (simulation time)
-    colors = sns.color_palette("coolwarm", 7)  # Generate a discrete color palette
-    
-    # Create a violin plot with density_norm and custom palette
+    # Create a violin plot with Processor Number as hue and custom palette
     sns.violinplot(
         x='Endothelial Count',
         y=phase,
+        hue='Processor Number',
         data=data,
         ax=ax,
         inner=None,  # Disable internal lines so we can add custom mean lines
-        palette=colors,  # Use discrete list of colors
-        legend=False  # Avoid redundant legends
+        palette="coolwarm",  # Use your specified color scheme
+        dodge=True  # Separate violins by hue within each x category
     )
     
-    # Overlay mean lines with linewidth=4 on each violin
-    means = data.groupby('Endothelial Count')[phase].mean()
-    for j, mean in enumerate(means):
-        ax.plot([j - 0.2, j + 0.2], [mean, mean], color='black', linewidth=4)  # Add thick mean line
+    # Overlay mean lines for each combination of Endothelial Count and Processor Number
+    means = data.groupby(['Endothelial Count', 'Processor Number'])[phase].mean().reset_index()
+    for _, row in means.iterrows():
+        x_pos = list(data['Endothelial Count'].unique()).index(row['Endothelial Count'])
+        ax.plot(
+            [x_pos - 0.2, x_pos + 0.2],  # Adjust position slightly for separation
+            [row[phase], row[phase]],
+            color='black',
+            linewidth=4,
+        )
     
     # Add a title for each subplot indicating the phase
     ax.set_title(f'{phase}', fontsize=14)
     
     # Customize y-axis range for consistency across all plots
-    # ax.set_ylim(0.2, 1.4)
+    ax.axhline(y=0.8, color='red', linestyle='--', linewidth=1.5)  # Add cutoff line
     
-    # Add a horizontal cutoff line at y=0.8
-    ax.axhline(y=0.8, color='red', linestyle='--', linewidth=1.5)
+    # Rotate x-axis labels for better readability
+    ax.tick_params(axis='x', rotation=45)
     
     # Set x-axis label only for the last subplot
     if i == len(phases) - 1:
@@ -67,18 +71,12 @@ for i, phase in enumerate(phases):
     
     # Set y-axis label only for the first subplot
     if i == 0:
-        ax.set_ylabel('Values', fontsize=12)
-    
-    # Customize y-axis ticks: Keep regular intervals below 0.8 and larger intervals above it
-    # lower_ticks = [0.2, 0.4, 0.6, 0.8]  # Ticks below or at 0.8
-    # upper_ticks = [1.0, 1.4, 1.8, 2.2, 2.4]   # Ticks above 0.8 with larger intervals
-    # ax.set_yticks(lower_ticks + upper_ticks)
-    
-    # Remove upper and right spines to clean up the plot appearance
-    sns.despine(ax=ax)
+        ax.set_ylabel('Hours', fontsize=12)
+
+sns.despine()
 
 # Save the combined plot as a PNG file in the Parallel_results folder
-output_file = os.path.join(results_folder, 'combined_violin_plot_phases_endocounts.png')
+output_file = os.path.join(results_folder, 'combined_violin_plot_phases_endocounts_parallel.png')
 plt.savefig(output_file, dpi=300)  # High-resolution output
 
 print(f"Saved {output_file}")

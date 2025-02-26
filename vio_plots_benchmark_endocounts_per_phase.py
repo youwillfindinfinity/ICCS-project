@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the data from the CSV file
-data_file = r'Benchmark_results\endothelial_simulation_data_phases_endocounts.csv'
+data_file = r'Benchmark_results/endothelial_simulation_data_phases_endocounts.csv'
 data = pd.read_csv(data_file)
 
 # Create the results folder if it doesn't exist

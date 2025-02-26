@@ -56,10 +56,10 @@ for i, phase in enumerate(phases):
     ax.set_title(f'{phase}', fontsize=14)
     
     # Customize y-axis range for consistency across all plots
-    ax.set_ylim(0.2, 1.0)
+    ax.set_ylim(0.35, 1.0)
     
     # Add a horizontal cutoff line at y=0.8
-    ax.axhline(y=0.55, color='red', linestyle='--', linewidth=1.5)
+    # ax.axhline(y=0.55, color='red', linestyle='--', linewidth=1.5)
     
     # Set x-axis label only for the last subplot
     if i == len(phases) - 1:
@@ -70,7 +70,7 @@ for i, phase in enumerate(phases):
         ax.set_ylabel('Values', fontsize=12)
     
     # Customize y-axis ticks: Keep regular intervals below 0.8 and larger intervals above it
-    lower_ticks = [0.2, 0.4, 0.6, 0.8]  # Ticks below or at 0.8
+    lower_ticks = [0.35, 0.4, 0.6, 0.8]  # Ticks below or at 0.8
     upper_ticks = [1., 1.2]   # Ticks above 0.8 with larger intervals
     ax.set_yticks(lower_ticks + upper_ticks)
     

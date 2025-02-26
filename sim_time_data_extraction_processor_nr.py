@@ -23,7 +23,7 @@ processor_nr = [
 for index in range(len(processor_nr)):
     # Construct the path to the simulation_time.txt file
     # file_path = os.path.join('ICCS_experiments\Processor_nr_endothelial_experiment', f'scan_iteration_{index}', 'combi_clean_benchmarked_processors', 'datafiles', 'simulation_time.txt')
-    file_path = os.path.join('ICCS_experiments\snellius_Benchmark_process_nr_full', f'scan_iteration_{index}', 'combi_clean_benchmarked_processors', 'datafiles', 'simulation_time.txt')
+    file_path = os.path.join('ICCS_experiments/snellius_Benchmark_process_nr_full', f'scan_iteration_{index}', 'combi_clean_benchmarked_processors', 'datafiles', 'simulation_time.txt')
     # Check if the file exists
     if os.path.exists(file_path):
         # Read the data from the file

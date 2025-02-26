@@ -5,7 +5,7 @@ import seaborn as sns
 
 # File paths
 # data_file = r'Benchmark_results\processor_nr_exp.csv'
-data_file = r'Benchmark_results\processor_nr_exp_full.csv'
+data_file = r'Benchmark_results/processor_nr_exp.csv'
 results_folder = r'Benchmark_results'
 
 # Load the data from the CSV file

@@ -30,7 +30,7 @@ mcs_values = [240000, 720000, int(1e6)] # Proliferative Phase (PP_h), Remodeling
 # Loop through each index and read the data
 for index in range(40):
     # Construct the path to the cellcount.txt file
-    file_path = os.path.join('ICCS_experiments/endothelialParameterScanBenchmark', f'scan_iteration_{index}', 'combi_clean_benchmarked', 'datafiles', 'cellcount.txt')
+    file_path = os.path.join('ICCS_experiments/snellius_Benchmark_full', f'scan_iteration_{index}', 'combi_clean_benchmarked', 'datafiles', 'cellcount.txt')
     
     # Check if the file exists
     if os.path.exists(file_path):
@@ -69,7 +69,7 @@ for index in range(40):
 all_data_df = pd.DataFrame(all_data)
 
 # Save the DataFrame to a CSV file
-output_csv_path = os.path.join(results_folder, 'endothelial_cell_counts_phases.csv')
+output_csv_path = os.path.join(results_folder, 'snellius_benchmark_endothelial_cell_counts_phases_full.csv')
 all_data_df.to_csv(output_csv_path, index=False)
 
 print(f"Data successfully saved to {output_csv_path}")

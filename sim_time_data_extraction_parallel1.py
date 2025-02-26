@@ -25,7 +25,7 @@ valid_indices = [0, 1, 2, 3, 4, 5, 6, 7]  # Only valid indices
 # Loop through each index and read the data
 for index in valid_indices:
     # Construct the path to the simulation_time.txt file (use raw string to avoid escape sequence issues)
-    file_path = os.path.join(r'ICCS_experiments\snellius_Parallel', f'scan_iteration_{index}', 'combi_clean_parallel', 'datafiles', 'simulation_time.txt')
+    file_path = os.path.join(r'ICCS_experiments/snellius_Parallel', f'scan_iteration_{index}', 'combi_clean_parallel', 'datafiles', 'simulation_time.txt')
     
     # Check if the file exists
     if os.path.exists(file_path):

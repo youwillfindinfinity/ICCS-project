@@ -10,7 +10,7 @@ if not os.path.exists(results_folder):
     print(f'Folder created: {results_folder}')
 
 # Load the extracted data from the CSV file
-data_file = os.path.join(results_folder, 'endothelial_simulation_data_phases_endocounts_snellius_Benchmark_full.csv')
+data_file = os.path.join(results_folder, 'snellius_benchmark_endothelial_cell_counts_phases_full.csv')
 
 # Check if the file exists
 if not os.path.exists(data_file):
@@ -21,7 +21,7 @@ if not os.path.exists(data_file):
 all_data_df = pd.read_csv(data_file)
 
 # Filter data for the inflammatory phase (IP_h) since we are testing total simulation time
-ip_h_data = all_data_df['IP_h']
+ip_h_data = all_data_df[all_data_df['Phase'] == 'IP_h']
 
 # Check for missing or insufficient data
 if ip_h_data.empty:
