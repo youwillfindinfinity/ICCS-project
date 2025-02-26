@@ -40,7 +40,7 @@ All source code(`Code`) used to generate the results and figures in the paper ca
 
 You can download a copy of all the files in this repository by cloning the repository:
 
-git clone https://github.com/youwillfindinfinity/Proliferative_Study_Burn_Wound_Healing.git
+git clone https://github.com/youwillfindinfinity/ICCS-project.git
 
 or by clicking on `Code` > `Download ZIP`.
 
