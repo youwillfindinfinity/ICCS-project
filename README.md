@@ -1,4 +1,4 @@
-Parallelization and Optimization of Spatial Immune Response Simulations in Burn Wound Healing
+Parallelization of Spatial Immune Response after Burn Injury simulations
 
 
 Authors:Roland V. Bumbuc<sup>1,2,3</sup>*, Vivek M. Sheraton<sup>3</sup>†
@@ -18,18 +18,12 @@ Vivek M. Sheraton (v.s.muniraj@uva.nl)
 Keywords:
 Burn wound immune response, Cytokine dynamics, Spatial modeling, Parallel computing, CompuCell3D, FiPy, Agent-based models, Mathematical modeling, Immune system simulation, Partial differential equations
 
-This work will be submitted to the International Conference on Computational Science (ICCS) 2025.
 
-Abstract
-Background: Spatial computational models of immune responses to burn injuries require intricate coupling of agent-based frameworks (e.g., CompuCell3D) and partial differential equation solvers (e.g., FiPy). However, these simulations are computationally intensive, necessitating optimized parallelization strategies for scalability.
-
-Purpose: This study aims to develop and benchmark parallelization protocols for burn wound immune response simulations, focusing on computational efficiency and scalability in hybrid agent-PDE models.
-
-Methods: We optimized the parallelization of cytokine dynamics by decoupling spatial PDE solutions from cellular agent interactions. Simulations were run across multiple processor configurations (1–128 cores) using MPI and hybrid OpenMP/MPI approaches. Key performance metrics included total simulation time, scaling efficiency, and workload distribution.
-
-Results: Our parallelization strategy achieved a 4.4x speedup at 16 processors and 45% runtime reduction compared to serial implementations. Optimal performance was observed at 32–64 processors for large-scale simulations (>5000 cells). Decoupling cytokine PDE resolution reduced communication overhead by 38%, enabling efficient scaling on supercomputing architectures.
-
-Conclusion: This work establishes robust parallel computing guidelines for spatial immune response models, significantly enhancing simulation throughput for burn wound healing studies. The proposed optimization framework facilitates large-scale, high-fidelity simulations of immune-cell-cytokine interactions in biologically realistic scenarios.
+Burn injuries are marked by a prolonged and intricate inflammatory response that can last for months, making it essential to understand and predict their dynamics to improve treatment strategies
+and outcomes. In this study, we explored post-burn immune response simulations using a hybrid model combining Finite volume and Cellular Potts model-based methods We analyze complementary parallelization 
+strategies employed using CompuCell3D (CC3D) and MPI. Three unique parallelization strategies were explored, namely fully serial, partly parallel, and fully parallel combinations of CC3D-MPI implementations.
+The simulation results provide critical insight into the performance of the model simulations for varying endothelial cell counts and processor numbers. The parallelized version consistently reduced the 
+runtime by an average of 45 % compared to the partially parallel computations, demonstrating its effectiveness in handling larger workloads.
 
 ## Software Implementation
 
