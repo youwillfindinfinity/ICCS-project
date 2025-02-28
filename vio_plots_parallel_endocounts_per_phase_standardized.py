@@ -41,7 +41,7 @@ def main():
     stats = data.groupby('Endothelial Count')['Total_h'].agg(['mean', 'std']).reset_index()
 
     # Create visualization
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(6, 8))
     sns.set_theme(style="whitegrid")
     
     plt.errorbar(
@@ -49,21 +49,26 @@ def main():
         y=stats['mean'],
         yerr=stats['std'],
         fmt='-o',
-        color='#2ca02c',
-        ecolor='#1f77b4',
-        elinewidth=2,
+        color='red',
+        ecolor='blue',
+        elinewidth=6,
         capsize=5,
-        capthick=2
+        capthick=4,
+        linewidth = 8, 
+        label = "Case 2 (+-SD)"
+
     )
 
-    plt.title('Total Simulation Time by Endothelial Cell Count\n(Combined Phases with SD)', pad=15)
-    plt.xlabel('Endothelial Cell Count', labelpad=10)
-    plt.ylabel('Total Simulation Time (Hours) ± SD', labelpad=10)
+    # plt.title('Total Simulation Time by Endothelial Cell Count\n(Combined Phases with SD)', pad=15)
+    # plt.xlabel('Endothelial Cell Count', labelpad=10)
+    # plt.ylabel('Total Simulation Time (Hours) ± SD', labelpad=10)
     plt.xticks(stats['Endothelial Count'])
     plt.grid(True, alpha=0.3)
-
+    plt.legend()
+    # Remove upper and right spines
+    sns.despine()
     # Save and show
-    output_path = os.path.join(RESULTS_FOLDER, 'combined_simulation_time.png')
+    output_path = os.path.join(RESULTS_FOLDER, 'combined_simulation_time_multicells.png')
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     print(f"Saved combined visualization to: {output_path}")

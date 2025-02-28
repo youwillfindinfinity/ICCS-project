@@ -12,11 +12,26 @@ all_data = []
 
 # Define the endothelial counts corresponding to each index
 processor_nr = [
-    1, 1, 1, 1, 1,
-    2, 2, 2, 2, 2,
-    4, 4, 4, 4, 4,
-    8, 8, 8, 8, 8,
-    16
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    4,
+    4,
+    4,
+    4,
+    4,
+    8,
+    8,
+    8,
+    8,
+    8
 ]
 # processor_nr = [1, 2, 4, 8, 16, 32, 64, 128]
 # Loop through each index and read the data
@@ -45,7 +60,7 @@ for index in range(len(processor_nr)):
 all_data_df = pd.DataFrame(all_data)
 
 # Save the DataFrame to a CSV file
-output_csv_path = os.path.join(results_folder, 'processor_nr_exp_full.csv')
+output_csv_path = os.path.join(results_folder, 'processor_parallel_input1.csv')
 all_data_df.to_csv(output_csv_path, index=False)
 
 print(f"Data successfully saved to {output_csv_path}")
